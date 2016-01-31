@@ -30,11 +30,11 @@
                                         <dbaUsername>${dba.db.login}</dbaUsername>
                                         <dbaPassword>${dba.db.password}</dbaPassword>
 
-                                        <coreServer>${northwind.db.server}</coreServer>
-                                        <corePort>${northwind.db.port}</corePort>
-                                        <coreUsername>${northwind.db.login}</coreUsername>
-                                        <corePassword>${northwind.db.password}</corePassword>
-                                        <coreDb>${northwind.db.database}</coreDb>
+                                        <coreServer>${victoria.db.server}</coreServer>
+                                        <corePort>${victoria.db.port}</corePort>
+                                        <coreUsername>${victoria.db.login}</coreUsername>
+                                        <corePassword>${victoria.db.password}</corePassword>
+                                        <coreDb>${victoria.db.database}</coreDb>
 
                                         <dropDatabase>${drop}</dropDatabase>
                                     </loader>
@@ -59,11 +59,11 @@
                                     <goal>clear</goal>
                                 </goals>
                                 <configuration>
-                                    <coreServer>${northwind.db.server}</coreServer>
-                                    <corePort>${northwind.db.port}</corePort>
-                                    <coreUsername>${northwind.db.login}</coreUsername>
-                                    <corePassword>${northwind.db.password}</corePassword>
-                                    <coreDb>${northwind.db.database}</coreDb>
+                                    <coreServer>${victoria.db.server}</coreServer>
+                                    <corePort>${victoria.db.port}</corePort>
+                                    <coreUsername>${victoria.db.login}</coreUsername>
+                                    <corePassword>${victoria.db.password}</corePassword>
+                                    <coreDb>${victoria.db.database}</coreDb>
                                 </configuration>
                             </execution>
                         </executions>

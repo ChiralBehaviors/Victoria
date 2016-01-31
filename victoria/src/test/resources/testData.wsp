@@ -1,0 +1,116 @@
+workspace: "uri:http://ultrastructure.me/ontology/com.chiralbehaviors/testData"
+           version: 1 
+           "testdata" 
+           "A set of test data for oddbabble"
+imports {
+    "urn:uuid:00000000-0000-0004-0000-000000000003" as kernel
+    "uri:http://ultrastructure.me/ontology/com.chiralbehaviors/oddbabble" as oddbabble
+}
+
+agencies {
+    Lydia = "Lydia" "A knight from Whiterun"
+        attribute values {
+            FirstName: "Lydia"
+            LastName: "Housecarl"
+            UserName: "swornToService"
+            EmailAddress: "test@example.com"
+            PhoneNumber: "555-5555"
+        };
+    Aela = "Aela" "A huntress"
+        attribute values {
+            FirstName: "Aela"
+            LastName: "Huntress"
+            UserName: "companion1"
+            EmailAddress: "test@example.com"
+            PhoneNumber: "555-5555"
+        };
+    Delphine = "Delphine" "A bit too smart to be content running a bar in Riverwood, don't you think?"
+        attribute values {
+            FirstName: "Delphine"
+            LastName: "Innkeep"
+            UserName: "bladeMistress"
+            EmailAddress: "test@example.com"
+            PhoneNumber: "555-5555"
+        };
+    Tolfdir = "Tolfdir" "Infinite power and infinite patience. An instructor at the College of Winterhold"
+        attribute values {
+            FirstName: "Tolfdir"
+            LastName: "Mage"
+            UserName: "leadByExample"
+            EmailAddress: "test@example.com"
+            PhoneNumber: "555-5555"
+        };
+    Savos = "Savos Aren" "The archmage of the College of Winterhold"
+        attribute values {
+            FirstName: "Savos"
+            LastName: "Aren"
+            UserName: "CosmicPowerPhenom"
+            EmailAddress: "test@example.com"
+            PhoneNumber: "555-5555"
+        };
+        
+    Weapon = "Weapon" "A tool for inflicting harm";
+    Bow = "Bow" "A piece of wood and some string and a whole lot of damage";
+    Sword = "Sword" "For when a nail bat won't cut it";
+    LightArmor = "Light Armor" "A little bit of protection goes a long way";
+    HeavyArmor = "Heavy Armor" "If a little is good, a lot is better";
+    Potion = "Potion" "Skyrim's version of spin-the-bottle involves much more personal risk than the normal sort";
+    Poison = "Poison" "A type of potion";
+    Magic = "Magic" "Because the corporeal world is so clunky and boring";
+    Destruction = "Destruction" "I want to set that thing on fire but it's all the way over there";
+    Conjuration = "Conjuration" "Say hello to my little imaginary friend";
+    Restoration = "Restoration" "No wait I can fix this!";
+    Alteration = "Alteration" "I reject your reality and substitute my own";
+       
+    edges {
+        Lydia.kernel::IsA.oddbabble::User
+        Lydia.oddbabble::HasInterest.Weapon
+        Lydia.oddbabble::HasInterest.HeavyArmor
+        Aela.kernel::IsA.oddbabble::User
+        Aela.oddbabble::HasInterest.LightArmor
+        Aela.oddbabble::HasInterest.Bow
+        Delphine.kernel::IsA.oddbabble::User
+        Tolfdir.kernel::IsA.oddbabble::User
+        Tolfdir.oddbabble::HasInterest.Potion
+        Tolfdir.oddbabble::HasInterest.Restoration
+        Savos.kernel::IsA.oddbabble::User
+        Savos.oddbabble::HasInterest.Magic
+        Savos.oddbabble::HasInterest.Potion
+        Tolfdir.oddbabble::Trusts.Savos
+        Tolfdir.oddbabble::HasContact.Savos
+        Savos.oddbabble::HasContact.Tolfdir
+        Aela.oddbabble::Distrusts.Delphine
+        
+        Weapon.kernel::IsA.oddbabble::Interest
+        Bow.kernel::IsA.oddbabble::Interest
+        Bow.kernel::IsA.Weapon
+        Sword.kernel::IsA.oddbabble::Interest
+        Sword.kernel::IsA.Weapon
+        LightArmor.kernel::IsA.oddbabble::Interest
+        HeavyArmor.kernel::IsA.oddbabble::Interest
+        LightArmor.oddbabble::SimilarTo.HeavyArmor
+        Potion.kernel::IsA.oddbabble::Interest
+        Poison.kernel::IsA.oddbabble::Interest
+        Poison.kernel::IsA.Potion
+        Magic.kernel::IsA.oddbabble::Interest
+        Destruction.kernel::IsA.oddbabble::Interest
+        Destruction.kernel::IsA.Magic
+        Conjuration.kernel::IsA.oddbabble::Interest
+        Conjuration.kernel::IsA.Magic
+        Restoration.kernel::IsA.oddbabble::Interest
+        Restoration.kernel::IsA.Magic
+        Alteration.kernel::IsA.oddbabble::Interest
+        Alteration.kernel::IsA.Magic
+    }
+}
+
+locations {
+    Whiterun = "Whiterun";
+    Riverwood = "Riverwood";
+    Winterhold = "Winterhold";
+}
+
+inferences {
+    oddbabble::HasInterest.Includes.oddbabble::HasInterest
+}
+

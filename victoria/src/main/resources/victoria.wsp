@@ -1,32 +1,47 @@
 workspace: "uri:http://ultrastructure.me/ontology/com.chiralbehaviors/oddbabble"
            version: 1 
            "oddbabble" 
-           "Ultrstructure ontology for oddbabble"
+           "Ultrastructure ontology for oddbabble"
 imports {
     "urn:uuid:00000000-0000-0004-0000-000000000003" as kernel
 }
 
 agencies {
     User = "User" "A user";
+    Babble = "Babble" "A babble";
     Interest = "Interest" "An interest held by a user";
-    
     facets {
-        IsA.User { LastName FirstName }
+        IsA.Babble 
             constraints {
-                n HasInterest: IsA.Interest
-                n Trusts: IsA.User named by relationship
-                n Distrusts: IsA.User named by relationship
+                n HasTopic: IsA.Interest named by relationship
             }
         IsA.Interest 
-        	constraints {
-        		n SimilarTo: IsA.Interest named by relationship
-        	}
+            constraints {
+                n SimilarTo: IsA.Interest named by relationship
+            }
+              
+        IsA.User { LastName FirstName UserName EmailAddress PhoneNumber }
+            constraints {
+                n Trusts: IsA.User named by relationship
+                n Distrusts: IsA.User named by relationship
+                n HasContact: IsA.User named by relationship
+                n HasInterest: IsA.Interest 
+            }
+        
     }
 }
 
 attributes {
     LastName = "Last Name" "the last name" text;
     FirstName = "First Name" "the first name" text;
+    UserName = "User Name" "the user's online handle" text;
+    IsPublic = "Is Public" "if true, the network edge in question is visible to others. the system defaults to private" bool;
+    EmailAddress = "Email Address" "a user's email address" text;
+    PhoneNumber = "Phone Number" "a user's phone number" text; 
+}
+
+locations {
+    City = "City" "a city";
 }
 
 relationships {
@@ -35,6 +50,8 @@ relationships {
 	Distrusts = "Distrusts" "A distrusts B" | IsDistrustedBy = "Is Distrusted By" "B is distrusted by A";
 	HasInterest = "Has Interest" "A has interest B" | InterestOf = "Interest Of" "B is an interest of A";
 	SimilarTo = "Similar To" "A is similar to B";
+	HasContact = "Has Contact" "A has a contact B" | IsContactOf = "Is Contact Of" "B is a contact of A";
+	HasTopic = "Has Topic" "Babble A has topic B" | IsTopicOf = "Is Topic Of" "Interest B is a topic of A";
 
 }
 
