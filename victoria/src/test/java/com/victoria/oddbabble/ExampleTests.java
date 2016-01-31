@@ -44,7 +44,7 @@ public class ExampleTests extends AbstractModelTest {
         //        We manifest it here to populate the postgres database with our
         //        data model. Once that's done, we can wrap db rows in Phantasm
         //        instances in memory. 
-        WorkspaceImporter.manifest(this.getClass().getResourceAsStream("/victoria.wsp"), model);
+        WorkspaceImporter.manifest(this.getClass().getResourceAsStream("/oddbabble.wsp"), model);
 
         //        Another workspace, this time full of test data for our scenarios.
         //        The maven plugin is not configured to generate java classes from

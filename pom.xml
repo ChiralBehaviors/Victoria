@@ -6,7 +6,7 @@
     <artifactId>victoria.app</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <name>Victoria</name>
+    <name>Victoria.App</name>
     <description>Who knows?</description>
 
     <licenses>
